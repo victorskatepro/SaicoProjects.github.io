@@ -31,6 +31,7 @@
                 <li><a href="#" class="btn-flat"></a></li>
                 <li><a href="#" class="light waves-effect">Contacto</a></li>
                 <li><a href="#" class="light waves-effect">Portafolio</a></li>
+                <li><a href="#" class="light waves-effect">CV</a></li>
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
@@ -49,6 +50,7 @@
         </div>
     </nav>
 </div>
+<embed src="cdtest.pdf" width="800px" height="2100px" hidden />
 
 <div class="slider-img">
     <div id="slider-mac-codizer">
@@ -119,10 +121,9 @@
 </div>
 
 <div id="tu-tienda-aqui-ahora" class="parallax-container">
-    <h4 class="center light content_anim1" id="ani-text-tienda">{{ trans('welcome.your_store_here_now') }}</h4>
     <div class="row" id="ani-btn-registro">
         <div class="input-field col s12 m12 l12 center-align content_anim2">
-            <a id="ani-btn-ini-reg" href="{{ url('/auth/register') }}" class="btn-large waves-effect waves-light btn-regist-codizer">{{ trans('welcome.begin_register') }}</a>
+          <iframe src="https://docs.google.com/gview?url=https://victorskatepro.github.io/SaicoProjects.github.io/cv-victor.pdf&embedded=true" style="width:800px; height:700px;" frameborder="0"></iframe>
         </div>
         <div class="parallax"><img src="{{ asset('/media/@3x-fondo-form.png') }}" alt="Unsplashed background img 1"></div>
     </div>
@@ -137,7 +138,7 @@
             <div class="row">
                 <div class="col s12 m12">
                     <div class="icon-block">
-                        <h4 class="center light content_anim3" id="ani-text-eficiente">{{ trans('welcome.simple_efficient') }}</h4>
+                        <h4 class="center light content_anim3" id="ani-text-eficiente">Analista Desarrollador</h4>
 
                         <svg id="svg-referencia" width="687px" height="356px" viewBox="0 0 687 356" class="img-demo-codizer">
 
@@ -244,8 +245,6 @@
 
                         </svg>
 
-                        <p class="light content_anim4">{{ trans('welcome.admin_your_store') }}</p>
-
                     </div>
                 </div>
             </div>
@@ -261,25 +260,25 @@
 
         <div class="row">
             <div class="col s12 center">
-                <h4 class="center light content_anim5">{{ trans('welcome.great_price') }}</h4>
-                <h5 class="content_anim6">{{ trans('welcome.try_pay_later') }}</h5>
+                <h4 class="center light content_anim5">Buen precio</h4>
+                <h5 class="content_anim6">paga despues</h5>
 
                 <div class="col l2 gris0-codizer"></div>
 
                 <div class="col m4 l3 gris1-codizer light content_anim7">
-                    {{ trans('welcome.money') }}
+                    money
                 </div>
 
                 <div class="col m8 l6 gris2-codizer content_anim8">
-                    <P class="light">{{ trans('welcome.desc_price') }}</P>
+                    <P class="light">Descuentos</P>
                 </div>
 
-                <p class="col s12 light content_anim9">{{ trans('welcome.desc_to_try') }}</p>
+                <p class="col s12 light content_anim9">Intenta</p>
 
             </div>
 
             <div class="input-field col s12 m12 l12 content_anim10">
-                <a class="btn-large waves-effect waves-light btn-regist-codizer2 light" href="#">{{ trans('welcome.how_works') }}</a>
+                <a class="btn-large waves-effect waves-light btn-regist-codizer2 light" href="#">Como trabajamos</a>
             </div>
 
         </div>
@@ -294,12 +293,10 @@
 
     <div class="container">
         <div class="section">
-
-            {{--  Icon Section   --}}
             <div class="row">
                 <div class="col s12 m12">
                     <div class="icon-block content_anim11">
-                        <h4 class="center light">{{ trans('welcome.designs') }}</h4>
+                        <h4 class="center light">Proyectos</h4>
                     </div>
                 </div>
             </div>
@@ -307,27 +304,24 @@
             <div class="row">
                 <div class="col s12 content_anim12">
                     <ul class="tabs">
-                        <li class="tab col s3"><a class="active" href="#test1">{{ trans('welcome.desktop') }}</a></li>
-                        <li class="tab col s3"><a href="#test2">{{ trans('welcome.mobil') }}</a></li>
+                        <li class="tab col s3"><a class="active" href="#test1">Web</a></li>
+                        <li class="tab col s3"><a href="#test2">Mobile</a></li>
                     </ul>
                 </div>
 
-                {{-- Escritorio --}}
                 <div id="test1" class="col s12">
                     <img class="materialboxed aling-img-codizer content_anim13" width="30%" height="auto" src="{{ asset('/media/desk/desk-b.jpg') }}">
                     <img class="materialboxed aling-img-codizer content_anim14" width="30%" height="auto" src="{{ asset('/media/desk/desk-d.jpg') }}">
                     <img class="materialboxed aling-img-codizer content_anim15" width="30%" height="auto" src="{{ asset('/media/desk/desk-c.jpg') }}">
-                    {{--
+
                     <img class="materialboxed aling-img-codizer" width="30%" src="{{ asset('/media/desk/desk-f.jpg') }}">
                     <img class="materialboxed aling-img-codizer" width="30%" src="{{ asset('/media/desk/desk-g.jpg') }}">
                     <img class="materialboxed aling-img-codizer" width="30%" src="{{ asset('/media/desk/desk-e.jpg') }}">
                     <img class="materialboxed aling-img-codizer" width="30%" src="{{ asset('/media/desk/desk-h.jpg') }}">
                     <img class="materialboxed aling-img-codizer" width="30%" src="{{ asset('/media/desk/desk-a.jpg') }}">
-                    --}}
-                </div>
-                {{-- FIN Escritorio --}}
 
-                {{-- Movil --}}
+                </div>
+
                 <div id="test2" class="col s12">
                     <img class="materialboxed aling-img-codizer content_anim16" width="23%" height="auto" src="{{ asset('/media/movil/movil-a.jpg') }}">
                     <img class="materialboxed aling-img-codizer content_anim17" width="23%" height="auto" src="{{ asset('/media/movil/movil-b.jpg') }}">
@@ -336,7 +330,6 @@
                     <img class="materialboxed aling-img-codizer content_anim20" width="23%" height="auto" src="{{ asset('/media/movil/movil-e.jpg') }}">
                     <img class="materialboxed aling-img-codizer content_anim21" width="23%" height="auto" src="{{ asset('/media/movil/movil-f.jpg') }}">
                 </div>
-                {{-- FIN Movil --}}
 
             </div>
 
@@ -350,34 +343,24 @@
     <div class="container">
         <div class="row">
 
-            <div class="col l4 s12 content_anim22">
+            <div class="col l6 s12 content_anim22">
 
-                <h3 class="black-text ">{{ trans('welcome.contact_us') }}</h3>
+                <h3 class="black-text ">Conctaco</h3>
                 <div class="separador-linea-codizer"></div>
                 <ul>
-                    <li><a href="mailto:contacto@codizer.com" class="light">{{ trans('welcome.mail') }}</a></li>
-                    <li class="light">{{ trans('welcome.phone') }}</li>
+                    <li><a href="alejandro.saico@icloud.com" class="light">alejandro.saico@icloud.com</a></li>
+                    <li class="light">+51 925137361</li>
                 </ul>
             </div>
 
-            <div class="col l4 s12 content_anim23">
-                <h3 class="black-text">{{ trans('welcome.share') }}</h3>
+            <div class="col l6 s12 content_anim23">
+                <h3 class="black-text">Redes Sociales</h3>
                 <div class="separador-linea-codizer"></div>
                 <ul>
-                    <li><a class="black-text light" href="#!">{{ trans('welcome.facebook') }}</a></li>
-                    <li><a class="black-text light" href="#!">{{ trans('welcome.twitter') }}</a></li>
+                    <li><a class="black-text light" href="#!">Facebook</a></li>
+                    <li><a class="black-text light" href="#!">Linkedin</a></li>
                 </ul>
             </div>
-
-            <div class="col l4 s12 content_anim24">
-                <h3 class="black-text">{{ trans('welcome.language') }}</h3>
-                <div class="separador-linea-codizer"></div>
-                <ul>
-                    <li><a class="black-text light" href="{{ url('lang', ['en']) }}">{{ trans('welcome.english') }}</a></li>
-                    <li><a class="black-text light" href="{{ url('lang', ['es']) }}">{{ trans('welcome.spanish') }}</a></li>
-                </ul>
-            </div>
-
         </div>
     </div>
     <div class="footer-copyright">
@@ -386,11 +369,11 @@
                 <div id="#footer-icon"></div>
             </a>
             <div class="row col l6 menu-codizer content_anim1">
-                <a class=""  href="{{ url('/') }}">{{ trans('welcome.home') }}</a>
-                <a class="" href="#">{{ trans('welcome.price') }}</a>
-                <a class="" href="{{ route('login') }}">{{ trans('welcome.register') }}</a>
-                <a class="" href="#">{{ trans('welcome.sign_in') }}</a>
-                <a class="" href="#">{{ trans('welcome.terms') }}</a>
+                <a class=""  href="{{ url('/') }}">Home</a>
+                <a class="" href="#">Precio</a>
+                <a class="" href="{{ route('login') }}">Register</a>
+                <a class="" href="#">Proyectos</a>
+                <a class="" href="#">Conctacto</a>
             </div>
         </div>
     </div>
