@@ -6,17 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-    <title>{{ trans('welcome.title') }}</title>
+    <title>Victor Saico Justo</title>
 
     <link href="css/welcome.materialize.min.css" rel="stylesheet">
     <link href="css/welcome.slider.min.css" rel="stylesheet">
     <link href="css/welcome.index.min.css" rel="stylesheet">
     <link href="css/welcome.animate.min.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{{ asset('/css/font-awesome.min.css') }}">
-
-
-    {{-- {!! Htlm::style('css/index.css') !!} --}}
-
 
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="alternate" title="shop RSS" type="application/rss+xml" href="/feed.rss" />
@@ -29,19 +25,13 @@
         <div class="nav-wrapper container">
 
             <a id="logo-container" href="{{ url('/') }}" class="brand-logo"><div></div></a>
-
             <ul class="left hide-on-med-and-down">
                 <li><a href="#" class="btn-flat"></a></li>
                 <li><a href="#" class="btn-flat"></a></li>
                 <li><a href="#" class="btn-flat"></a></li>
-                <li><a href="{{ url('/#Precio') }}" class="light waves-effect">{{ trans('welcome.price') }}</a></li>
-                <li><a href="{{ url('/#Contacto') }}" class="light waves-effect">{{ trans('welcome.contact') }}</a></li>
+                <li><a href="#" class="light waves-effect">Contacto</a></li>
+                <li><a href="#" class="light waves-effect">Portafolio</a></li>
             </ul>
-
-            <div class="right hide-on-med-and-down">
-                <a href="{{ route('register') }}" class="waves-effect waves-light light btn btn-codizer-1">{{ trans('welcome.register') }}</a>
-                <a href="{{ route('login') }}" class="waves-effect waves-light light btn  btn-codizer-2">{{ trans('welcome.sign_in') }}</a>
-            </div>
 
             <ul id="nav-mobile" class="side-nav">
                 <li><a href="{{ url('/') }}">Codizer Shop</a></li>
@@ -77,39 +67,39 @@
             <div class="device-firefox"></div>
         </div>
         <div class="os-container-codizer">
-            {{-- APPLE --}}
+
             <div class="slider-opcion-left-codizer" id="device-apple">
                 <div class="btn-large waves-effect waves-grey obj-icon1-slider-codizer grey lighten-4 apple"></div>
                 <div class="btn-large waves-effect waves-grey grey lighten-4 obj-slider-codizer">
                     <div class="obj-icon2-slider-codizer amber"></div>
-                    <p class="light">{{ trans('welcome.ios') }}</p>
+                    <p class="light">iOS</p>
                 </div>
             </div>
 
-            {{-- ANDROID --}}
+
             <div class="slider-opcion-right-codizer" id="device-android">
                 <div class="btn-large waves-effect waves-grey obj-icon1-slider-codizer green accent-4 android"></div>
                 <div class="btn-large waves-effect waves-grey grey lighten-4 obj-slider-codizer">
                     <div class="obj-icon2-slider-codizer amber"></div>
-                    <p class="light">{{ trans('welcome.android') }}</p>
+                    <p class="light">Android</p>
                 </div>
             </div>
 
-            {{-- WINDOWS --}}
+
             <div class="slider-opcion-left-codizer left-codizer" id="device-windows">
                 <div class="btn-large waves-effect waves-grey obj-icon1-slider-codizer light-blue accent-3 windows"></div>
                 <div class="btn-large waves-effect waves-grey grey lighten-4 obj-slider-codizer">
                     <div class="obj-icon2-slider-codizer amber"></div>
-                    <p class="light">{{ trans('welcome.windows') }}</p>
+                    <p class="light">Web</p>
                 </div>
             </div>
 
-            {{-- FIREFOX OS --}}
+
             <div class="slider-opcion-right-codizer right-codizer" id="device-firefox">
                 <div class="btn-large waves-effect waves-grey obj-icon1-slider-codizer orange lighten-1 firefox"></div>
                 <div class="btn-large waves-effect waves-grey grey lighten-4 obj-slider-codizer">
                     <div class="obj-icon2-slider-codizer amber"></div>
-                    <p class="light">{{ trans('welcome.fire_os') }}</p>
+                    <p class="light">Hibrido</p>
                 </div>
             </div>
         </div>
@@ -122,7 +112,7 @@
     <div class="section">
         <div class="row">
             <div class="col s12 center">
-                <h1 class="header light">{{ trans('welcome.your_store_online') }}</h1>
+                <h1 class="header light">Desarrollador de Software</h1>
             </div>
         </div>
     </div>
