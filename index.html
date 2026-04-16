@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Victor Saico — Technical Lead & Senior Android Developer</title>
+<meta name="description" content="Victor Saico Justo — Technical Lead at Interbank, Senior Android Developer. Kotlin, Flutter, Swift, Jetpack Compose. Building apps for millions. Lima, Peru.">
+<meta name="author" content="Victor Saico Justo">
+<meta property="og:title" content="Victor Saico — Technical Lead & Android Developer">
+<meta property="og:description" content="Building apps that impact millions. Technical Lead at Interbank. Senior Android & Flutter Developer with 10+ years fintech expertise.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://victorskatepro.github.io/SaicoProjects.github.io">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Victor Saico — Technical Lead & Android Developer">
+<meta name="twitter:description" content="10+ years mobile development. Kotlin. Flutter. Swift. Jetpack Compose. Fintech at scale.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%236C63FF' width='100' height='100'/><text x='50' y='65' font-size='70' font-weight='300' fill='white' text-anchor='middle' font-family='Inter'>V</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090a;
+  --surface: #0f1118;
+  --surface-hover: #111827;
+  --surface-glow: #1a1f2e;
+  --border: rgba(255,255,255,0.05);
+  --border-hover: rgba(255,255,255,0.08);
+  --border-accent: rgba(108,99,255,0.2);
+  --text: #e5e7eb;
+  --text-dim: #9ca3af;
+  --text-muted: #6b7280;
+  --primary: #6c63ff;
+  --primary-light: #8b83ff;
+  --accent: #00d4aa;
+  --shadow-1: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-2: 0 4px 16px rgba(108,99,255,0.08), 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-3: 0 12px 40px rgba(108,99,255,0.12), 0 2px 8px rgba(0,0,0,0.15);
+  --shadow-5: 0 20px 60px rgba(108,99,255,0.15), 0 0 40px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.05);
+  --gradient-1: linear-gradient(135deg, #6c63ff 0%, #00d4aa 100%);
+  --gradient-2: linear-gradient(135deg, rgba(108,99,255,0.12) 0%, rgba(0,212,170,0.08) 100%);
+  --mono: 'JetBrains Mono', monospace;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:80px;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:var(--accent);text-decoration:none;transition:color .2s;}
+a:focus-visible{outline:2px solid var(--primary);outline-offset:2px;}
+button:focus-visible{outline:2px solid var(--primary);outline-offset:2px;}
+
+/* Navigation */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;transition:all .35s cubic-bezier(.4,0,.2,1);background:transparent;}
+nav.scrolled{background:rgba(8,9,10,.92);backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.05);}
+.nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
+.nav-logo{font-weight:600;font-size:18px;background:var(--gradient-1);background-clip:text;-webkit-background-clip:text;color:transparent;}
+.nav-links{display:flex;gap:8px;align-items:center;}
+.nav-links a{color:var(--text-dim);font-size:13px;font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s;}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.03);}
+.nav-links a.active{color:var(--text);}
+.nav-resume{border:1px solid var(--border);color:var(--text-dim);padding:8px 18px;font-weight:500;border-radius:8px;transition:all .2s;}
+.nav-resume:hover{border-color:var(--border-hover);color:var(--text);background:rgba(255,255,255,.02);}
+
+main{display:block;}
+section{padding:120px 32px;}
+@media(max-width:900px){section{padding:80px 24px;}}
+@media(max-width:640px){section{padding:60px 16px;}}
+
+.container{max-width:1200px;margin:0 auto;}
+
+/* Hero Section */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 32px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(108,99,255,.06) 0%,transparent 70%);border-radius:50%;pointer-events:none;filter:blur(40px);}
+.hero-content{position:relative;z-index:2;}
+.hero h1{background:var(--gradient-1);background-clip:text;-webkit-background-clip:text;color:transparent;font-size:clamp(40px,7.5vw,76px);font-weight:300;line-height:1.05;letter-spacing:-1.4px;margin-bottom:24px;animation:fadeInUp .8s ease-out;}
+.hero-subtitle{font-size:18px;color:var(--text-dim);margin-bottom:40px;line-height:1.6;max-width:600px;animation:fadeInUp .8s ease-out .1s both;}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;animation:fadeInUp .8s ease-out .2s both;}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+.btn{padding:13px 30px;border-radius:8px;font-size:14px;font-weight:500;border:none;cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 20px rgba(108,99,255,.25);border:1px solid rgba(255,255,255,.1);}
+.btn-primary:hover{background:var(--primary-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(108,99,255,.35);}
+.btn-secondary{background:rgba(255,255,255,.02);color:var(--accent);border:1px solid rgba(255,255,255,.06);padding:12px 28px;}
+.btn-secondary:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:var(--text);}
+
+/* About Section */
+.about{background:var(--surface);}
+.section-title{font-size:clamp(28px,4vw,40px);font-weight:400;margin-bottom:48px;letter-spacing:-0.76px;color:var(--text);}
+.about-grid{display:grid;grid-template-columns:3fr 2fr;gap:60px;align-items:start;}
+.about-grid p{font-size:16px;line-height:1.8;margin-bottom:24px;color:var(--text-dim);}
+.about-grid strong{color:var(--text);font-weight:600;}
+.tech-stack{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;}
+.tech-group h4{color:var(--accent);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+.tech-group ul{list-style:none;}
+.tech-group li{color:var(--text-dim);font-size:14px;margin-bottom:6px;}
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:40px;}
+  .tech-stack{grid-template-columns:1fr;}
+}
+
+/* Experience Section */
+.experience{background:var(--bg);}
+.exp-tabs{display:flex;gap:8px;margin-bottom:40px;border-bottom:1px solid var(--border);overflow-x:auto;padding-bottom:16px;}
+.exp-tab{background:transparent;color:var(--text-dim);border:none;border-bottom:2px solid transparent;padding:12px 20px;cursor:pointer;font-size:14px;font-weight:500;border-radius:4px;transition:all .2s;white-space:nowrap;}
+.exp-tab:hover{color:var(--text);background:rgba(255,255,255,.02);}
+.exp-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+.exp-panels{min-height:400px;}
+.exp-panel{display:none;animation:fadeIn .3s ease-in;}
+.exp-panel.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.exp-panel h3{font-size:22px;font-weight:600;margin-bottom:8px;color:var(--text);}
+.company{color:var(--primary);}
+.exp-subtitle{color:var(--accent);font-size:13px;font-weight:600;margin-bottom:20px;letter-spacing:.05em;}
+.exp-desc{list-style:none;margin-bottom:24px;}
+.exp-desc li{color:var(--text-dim);font-size:15px;line-height:1.8;margin-bottom:12px;padding-left:20px;position:relative;}
+.exp-desc li::before{content:'▸';position:absolute;left:0;color:var(--accent);}
+.exp-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.tag{font-size:11px;padding:6px 14px;border-radius:6px;background:rgba(255,255,255,.04);color:var(--text-dim);border:1px solid rgba(255,255,255,.06);font-weight:500;font-family:var(--mono);transition:all .2s;}
+.tag:hover{background:rgba(108,99,255,.15);color:var(--text);border-color:rgba(108,99,255,.3);}
+
+/* Featured Projects */
+.featured-projects{display:grid;gap:100px;margin-bottom:80px;}
+.featured-project{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;opacity:0;animation:fadeInUp .6s ease-out forwards;}
+.featured-project:nth-child(1){animation-delay:.1s;}
+.featured-project:nth-child(2){animation-delay:.2s;}
+.featured-project:nth-child(3){animation-delay:.3s;}
+.featured-project:nth-child(even){direction:rtl;}
+.featured-project:nth-child(even)>*{direction:ltr;}
+.fp-content h3{font-size:28px;font-weight:600;margin-bottom:16px;color:var(--text);}
+.fp-desc{color:var(--text-dim);font-size:15px;line-height:1.8;margin-bottom:24px;}
+.project-impact{color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-top:20px;}
+.fp-links{display:flex;gap:12px;margin-top:24px;}
+.fp-links a{font-size:13px;font-weight:600;padding:8px 16px;border:1px solid var(--border);border-radius:6px;transition:all .2s;color:var(--text-dim);}
+.fp-links a:hover{border-color:var(--accent);color:var(--accent);}
+.phone-mockups{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+.phone-mockup{width:140px;height:280px;background:#1a1a2e;border-radius:24px;border:3px solid #2d2d44;position:relative;overflow:hidden;box-shadow:var(--shadow-5);flex-shrink:0;transition:transform .4s cubic-bezier(.4,0,.2,1);cursor:pointer;}
+.phone-mockup:hover{box-shadow:0 28px 80px rgba(108,99,255,.2), 0 0 50px rgba(0,0,0,.4), inset 0 0 0 1px rgba(255,255,255,.08);transform:perspective(1000px) rotateY(4deg) rotateX(-2deg);}
+.phone-mockup::before{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:#2d2d44;border-radius:4px;z-index:10;}
+.phone-mockup.tilted-left{transform:perspective(1000px) rotateY(6deg) rotateX(2deg) rotateZ(-2deg);}
+.phone-mockup.tilted-right{transform:perspective(1000px) rotateY(-6deg) rotateX(2deg) rotateZ(2deg);}
+.featured-project:hover .phone-mockup.tilted-left{transform:perspective(1000px) rotateY(3deg) rotateX(1deg) rotateZ(-1deg);}
+.featured-project:hover .phone-mockup.tilted-right{transform:perspective(1000px) rotateY(-3deg) rotateX(1deg) rotateZ(1deg);}
+.phone-mockup .screen{position:absolute;top:14px;left:4px;right:4px;bottom:14px;border-radius:18px;overflow:hidden;background:#0f0f1a;}
+.phone-mockup .screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+@media(max-width:900px){
+  .featured-project{grid-template-columns:1fr;gap:40px;}
+  .featured-project:nth-child(even){direction:ltr;}
+  .phone-mockups{flex-direction:column;align-items:center;}
+}
+
+/* Projects Grid */
+.projects-section-title{font-size:clamp(24px,3vw,32px);font-weight:600;margin:80px 0 40px;letter-spacing:-0.6px;color:var(--text);}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:80px;}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;transition:all .3s cubic-bezier(.4,0,.2,1);}
+.project-card:hover{border-color:var(--border-accent);box-shadow:var(--shadow-3);transform:translateY(-4px);}
+.project-card h4{font-size:18px;font-weight:600;margin-bottom:12px;color:var(--text);}
+.project-card p{color:var(--text-dim);font-size:14px;line-height:1.6;margin-bottom:16px;}
+.project-card-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.project-card-tags span{font-size:11px;padding:4px 10px;border-radius:5px;background:rgba(255,255,255,.03);color:var(--text-dim);font-family:var(--mono);border:1px solid rgba(255,255,255,.05);}
+
+/* Skills Section */
+.skills{background:var(--surface);}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
+.skill-group{background:rgba(255,255,255,.01);border:1px solid var(--border);border-radius:12px;padding:24px;transition:all .3s;}
+.skill-group:hover{border-color:var(--border-hover);box-shadow:var(--shadow-2);}
+.skill-group h4{color:var(--accent);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;}
+.skill-group ul{list-style:none;}
+.skill-group li{color:var(--text-dim);font-size:14px;margin-bottom:8px;padding-left:16px;position:relative;}
+.skill-group li::before{content:'→';position:absolute;left:0;color:var(--primary);}
+
+/* Contact Section */
+.contact{background:var(--bg);text-align:center;}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;margin:40px auto;max-width:600px;box-shadow:var(--shadow-2);}
+.contact p{color:var(--text-dim);font-size:16px;margin-bottom:40px;line-height:1.8;}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:40px;}
+.contact-item{padding:20px;border:1px solid var(--border);border-radius:8px;transition:all .2s;background:transparent;}
+.contact-item:hover{border-color:var(--accent);background:rgba(0,212,170,.05);}
+.contact-item h4{color:var(--text);font-size:13px;font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em;}
+.contact-item a{color:var(--accent);font-size:13px;word-break:break-all;font-weight:500;}
+.contact-item a:hover{text-decoration:underline;}
+
+/* Footer */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:40px 32px;text-align:center;color:var(--text-muted);font-size:13px;}
+footer a{color:var(--text-dim);}
+footer a:hover{color:var(--accent);}
+
+/* Scroll Reveal Animation */
+.scroll-reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease-out, transform .6s ease-out;}
+.scroll-reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Print Styles */
+@media print {
+  nav, footer, .nav-resume { display: none; }
+  body { background: white; color: black; font-family: Arial, sans-serif; }
+  section { padding: 20px; page-break-inside: avoid; }
+  a { color: blue; text-decoration: underline; }
+  .phone-mockups { display: none; }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { display: grid; grid-template-columns: 2fr 2fr; }
+}
+
+/* Responsive */
+@media(max-width:900px){
+  nav{padding:12px 16px;}
+  .nav-links{gap:4px;}
+  .nav-links a{padding:6px 10px;font-size:12px;}
+  .exp-tabs{gap:4px;}
+  .exp-tab{padding:8px 12px;}
+  .tech-stack{grid-template-columns:1fr;}
+}
+
+@media(max-width:640px){
+  nav{padding:12px 12px;}
+  .nav-container{flex-direction:column;gap:12px;}
+  .nav-links{flex-wrap:wrap;justify-content:center;gap:2px;}
+  .nav-links a{padding:4px 8px;font-size:11px;}
+  .exp-tabs{flex-wrap:wrap;}
+  .hero{padding:80px 16px;min-height:auto;}
+  .hero h1{font-size:clamp(32px,8vw,48px);}
+  .hero-cta{flex-direction:column;}
+  .btn{width:100%;}
+  .about-grid{gap:30px;}
+  .featured-project{gap:24px;}
+  .phone-mockup{width:100px;height:200px;}
+  .projects-grid{grid-template-columns:1fr;}
+  .skills-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .phone-mockups{gap:16px;}
+  .projects-section-title{margin:60px 0 30px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav aria-label="Main navigation">
+  <div class="nav-container">
+    <div class="nav-logo">Victor Saico</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="nav-resume">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>Victor Saico</h1>
+    <p class="hero-subtitle">Technical Lead & Senior Mobile Developer. Building apps that impact millions across fintech, delivery, and enterprise platforms.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div>
+        <p>I'm a <strong>Technical Lead at Interbank Peru</strong> with deep expertise in Android, Flutter, and iOS development. For the past decade, I've designed and shipped apps that serve tens of millions of users across payment systems, delivery platforms, and fintech products.</p>
+        <p>My focus is on building robust, scalable, and user-centric mobile experiences. I'm passionate about mentoring teams, architecting complex systems, and staying at the forefront of mobile technology trends. I've led teams of 8+ engineers, established security standards across fintech apps, and delivered products serving 100M+ users.</p>
+        <div class="tech-stack">
+          <div class="tech-group">
+            <h4>Mobile</h4>
+            <ul>
+              <li>Kotlin & Jetpack Compose</li>
+              <li>Swift & SwiftUI</li>
+              <li>Flutter & Dart</li>
+              <li>Android Architecture</li>
+            </ul>
+          </div>
+          <div class="tech-group">
+            <h4>Backend & Tools</h4>
+            <ul>
+              <li>REST APIs & GraphQL</li>
+              <li>Firebase & Firestore</li>
+              <li>Azure DevOps</li>
+              <li>CI/CD & Git</li>
+            </ul>
+          </div>
+          <div class="tech-group">
+            <h4>Testing</h4>
+            <ul>
+              <li>Unit & Integration Tests</li>
+              <li>Snapshot Testing</li>
+              <li>Espresso & XCUITest</li>
+              <li>Accessibility Testing</li>
+            </ul>
+          </div>
+          <div class="tech-group">
+            <h4>Best Practices</h4>
+            <ul>
+              <li>MVVM & Clean Architecture</li>
+              <li>Security & Encryption</li>
+              <li>Performance Optimization</li>
+              <li>A/B Testing & Analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+    <div class="exp-tabs">
+      <button class="exp-tab active" data-tab="tech-lead-2025" aria-label="Interbank Tech Lead 2025">Interbank (2025)</button>
+      <button class="exp-tab" data-tab="senior-2024" aria-label="Interbank Senior 2024">Interbank (2024)</button>
+      <button class="exp-tab" data-tab="pedidosya" aria-label="PedidosYa">PedidosYa</button>
+      <button class="exp-tab" data-tab="tecsup" aria-label="TECSUP">TECSUP</button>
+      <button class="exp-tab" data-tab="interbank-2020" aria-label="Interbank 2020">Interbank (2020)</button>
+      <button class="exp-tab" data-tab="everis" aria-label="Everis/NTT DATA">Everis/NTT</button>
+      <button class="exp-tab" data-tab="freelance" aria-label="Freelance iOS">Freelance iOS</button>
+    </div>
+    <div class="exp-panels">
+      <div class="exp-panel active" data-panel="tech-lead-2025">
+        <h3>Technical Lead <span class="company">@ Interbank</span></h3>
+        <p class="exp-subtitle">Jan 2025 — Present</p>
+        <ul class="exp-desc">
+          <li>Lead mobile engineering team, mentoring 5+ developers on Kotlin, Compose, and architecture patterns</li>
+          <li>Architected Money Exchange feature (divisa) serving 1M+ monthly active users with real-time forex rates</li>
+          <li>Implemented Ruleta Millonaria gamified savings (50K+ active users) with 98% uptime SLA</li>
+          <li>Migrated legacy Android codebase to modern Jetpack Compose reducing code complexity by 40%</li>
+          <li>Established security standards (SSL Pinning, MTLS, AES-256) across all mobile products</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Kotlin</span><span class="tag">Compose</span><span class="tag">Android</span><span class="tag">Leadership</span><span class="tag">Azure DevOps</span><span class="tag">MTLS</span>
+        </div>
+      </div>
+      <div class="exp-panel" data-panel="senior-2024">
+        <h3>Senior Android Developer <span class="company">@ Interbank</span></h3>
+        <p class="exp-subtitle">Sep 2024 — Nov 2024</p>
+        <ul class="exp-desc">
+          <li>Led critical mobile app stabilization initiative reducing crash rate from 2.5% to 1.6% (35% improvement)</li>
+          <li>Designed and implemented advanced payment flow with biometric authentication (fingerprint + face)</li>
+          <li>Mentored junior developers on Jetpack Compose best practices and modern architecture patterns</li>
+          <li>Improved app performance through systematic optimization, reducing startup time by 40%</li>
+          <li>Collaborated with product team to define technical requirements for new fintech features</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Kotlin</span><span class="tag">Android</span><span class="tag">Performance</span><span class="tag">Biometric</span><span class="tag">Mentoring</span>
+        </div>
+      </div>
+      <div class="exp-panel" data-panel="pedidosya">
+        <h3>Senior Android Developer <span class="company">@ PedidosYa</span></h3>
+        <p class="exp-subtitle">Dec 2021 — Aug 2024</p>
+        <ul class="exp-desc">
+          <li>Built PedidosYa digital wallet & card acquisition flow for 100M+ user Latin America delivery platform</li>
+          <li>Led search module migration from web to native, achieving 80% test coverage with snapshot tests</li>
+          <li>Improved retention by +20% and conversion by +15% through UX optimization and dynamic feature flags</li>
+          <li>Implemented VoiceOver accessibility support, ensuring WCAG 2.1 AA compliance across 50+ features</li>
+          <li>Mentored team of 8 Android developers on MVVM, Dagger, Hilt, and code review standards</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Kotlin</span><span class="tag">Android</span><span class="tag">Jetpack</span><span class="tag">Testing</span><span class="tag">Accessibility</span><span class="tag">Mentoring</span>
+        </div>
+      </div>
+      <div class="exp-panel" data-panel="tecsup">
+        <h3>Mobile Developer <span class="company">@ TECSUP</span></h3>
+        <p class="exp-subtitle">Mar 2022 — Dec 2024 (Concurrent with work)</p>
+        <ul class="exp-desc">
+          <li>Developed mobile applications for educational platform serving 50K+ students across Peru</li>
+          <li>Implemented video streaming and content delivery with adaptive bitrate (HLS, DASH)</li>
+          <li>Built offline-first architecture for content access in low-connectivity regions (cache-first strategy)</li>
+          <li>Designed responsive UI supporting tablets, phones, and landscape orientations (adaptive layouts)</li>
+          <li>Achieved 98% app stability through rigorous testing and continuous user feedback integration</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Kotlin</span><span class="tag">Android</span><span class="tag">Streaming</span><span class="tag">Offline-First</span><span class="tag">Education</span>
+        </div>
+      </div>
+      <div class="exp-panel" data-panel="interbank-2020">
+        <h3>Android Developer <span class="company">@ Interbank</span></h3>
+        <p class="exp-subtitle">Aug 2020 — Dec 2021</p>
+        <ul class="exp-desc">
+          <li>Developed payment transfer features for flagship Interbank mobile banking app (5M+ downloads)</li>
+          <li>Implemented biometric authentication (fingerprint & face recognition) with device secure storage</li>
+          <li>Built real-time transaction monitoring with push notifications and SMS alerts</li>
+          <li>Optimized app for multiple Android versions (API 21+) with backward compatibility testing</li>
+          <li>Collaborated with security team on encryption standards and quarterly vulnerability assessments</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Kotlin</span><span class="tag">Java</span><span class="tag">Android</span><span class="tag">Security</span><span class="tag">Banking</span>
+        </div>
+      </div>
+      <div class="exp-panel" data-panel="everis">
+        <h3>Android Developer <span class="company">@ Everis/NTT DATA</span></h3>
+        <p class="exp-subtitle">Apr 2019 — Apr 2020</p>
+        <ul class="exp-desc">
+          <li>Developed Android applications for enterprise clients across retail and finance sectors</li>
+          <li>Built modular architecture for code reusability across multiple client projects (feature modules)</li>
+          <li>Implemented cloud synchronization and offline data management using Room DB and Work API</li>
+          <li>Participated in agile sprints with 2-week cycles and daily standup meetings</li>
+          <li>Conducted code reviews and ensured adherence to architectural patterns and best practices</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Java</span><span class="tag">Kotlin</span><span class="tag">Android</span><span class="tag">Cloud</span><span class="tag">Enterprise</span>
+        </div>
+      </div>
+      <div class="exp-panel" data-panel="freelance">
+        <h3>Freelance iOS Developer</h3>
+        <p class="exp-subtitle">Apr 2019 — Jul 2019</p>
+        <ul class="exp-desc">
+          <li>Developed native iOS applications for local startups and small businesses in Peru</li>
+          <li>Built user-friendly interfaces using AutoLayout and modern UIKit components</li>
+          <li>Integrated third-party APIs (Google Maps, Stripe, Firebase Analytics) for enhanced functionality</li>
+          <li>Published 3 apps to Apple App Store with excellent user ratings (4.5+ stars)</li>
+          <li>Handled full lifecycle from requirements gathering through App Store submission and support</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Swift</span><span class="tag">iOS</span><span class="tag">UIKit</span><span class="tag">REST API</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Projects -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="featured-projects">
+      <!-- Money Exchange -->
+      <div class="featured-project">
+        <div class="fp-content">
+          <h3>Money Exchange Interbank</h3>
+          <div class="fp-desc">Real-time currency exchange app serving 1M+ Interbank customers in Peru. Features live forex rates, conversion calculator, and integrated wallet transfers. Built with modern Kotlin architecture, Jetpack Compose UI, Azure cloud backend with real-time data streaming via WebSockets.</div>
+          <div class="project-impact">1M+ users · Real-time rates · Azure backend</div>
+          <div class="fp-links">
+            <a href="https://play.google.com/store/apps/details?id=com.interbank.divisa" rel="noopener noreferrer" aria-label="Open Money Exchange on Google Play Store" target="_blank">Google Play</a>
+            <a href="https://apps.apple.com/pe/app/money-exchange-interbank/id1485028346" rel="noopener noreferrer" aria-label="Open Money Exchange on Apple App Store" target="_blank">App Store</a>
+          </div>
+        </div>
+        <div class="phone-mockups">
+          <div class="phone-mockup tilted-left" aria-label="Money Exchange - Screenshot 1">
+            <div class="screen">
+              <img src="https://play-lh.googleusercontent.com/qZHB0N1Wtp-gCSU2brYsJjTnBaa9wiwPp1PlF9ps96TLSAKwyzEgob4HvJ9pKpoDYw" alt="Money Exchange - Rate Display Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="phone-mockup" aria-label="Money Exchange - Screenshot 2">
+            <div class="screen">
+              <img src="https://play-lh.googleusercontent.com/8Mow2JC9cP5IV3DOEMiWromE8fCFLyePgzuuyORiwSKTPQWoqsD27b1wdSFF8mOAEr5y" alt="Money Exchange - Conversion Calculator Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="phone-mockup" aria-label="Money Exchange - Screenshot 3">
+            <div class="screen">
+              <img src="https://play-lh.googleusercontent.com/u_1AQFxnkOqWia1YfJFvv13L4ZaASbIGPtE6eTur9FNTU1I3qpUWwE9qyyhHtGejETw" alt="Money Exchange - Transfer Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="phone-mockup tilted-right" aria-label="Money Exchange - Screenshot 4">
+            <div class="screen">
+              <img src="https://play-lh.googleusercontent.com/S6GmkeajAyljmqnUV1m-DcocOlwmkDIylpTUoTThQoJO3sFe92ciBkKVW3oYHXTrHDc" alt="Money Exchange - History & Transactions Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="phone-mockup" aria-label="Money Exchange - Screenshot 5">
+            <div class="screen">
+              <img src="https://play-lh.googleusercontent.com/kq6TPAaQY3UJo79PCTSZT2czenu2C1Qbpv-pOep9BDJNRCcRE1TQHlxiDIpiZZLf2lA" alt="Money Exchange - Settings Screen" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PedidosYa -->
+      <div class="featured-project">
+        <div class="fp-content">
+          <h3>PedidosYa — Delivery & Wallet</h3>
+          <div class="fp-desc">Senior Android lead on 100M+ user delivery platform serving all of Latin America. Architected digital wallet integration, card acquisition flow, and search module migration from web to native. Achieved 80%+ test coverage with Snapshot Testing and improved conversion by 15% through UX optimization and feature flag experiments.</div>
+          <div class="project-impact">100M+ users · 15% conversion lift · WCAG 2.1 AA</div>
+          <div class="fp-links">
+            <a href="https://play.google.com/store/apps/details?id=com.pedidosya&hl=en_US" rel="noopener noreferrer" aria-label="Open PedidosYa on Google Play Store" target="_blank">Google Play</a>
+            <a href="https://apps.apple.com/app/pedidosya/id1176222150" rel="noopener noreferrer" aria-label="Open PedidosYa on Apple App Store" target="_blank">App Store</a>
+          </div>
+        </div>
+        <div class="phone-mockups">
+          <div class="phone-mockup tilted-left" aria-label="PedidosYa - Screenshot 1">
+            <div class="screen">
+              <img src="https://play-lh.googleusercontent.com/Sxd3g_bQFjAep_4GW3k9B7XYpwjH0Tkbs5gWo8rlUVEyT65LvAk1i5PQxvgT4yWvaA=w526-h296" alt="PedidosYa - Search & Discovery Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="phone-mockup" aria-label="PedidosYa - Screenshot 2">
+            <div class="screen">
+              <img src="https://play-lh.googleusercontent.com/h1DZvufWbXgzxbUEC41_IDVPTpBiGXdq2Jh40wTOdlJ_6wvEXvj7EBLzE_p-nkGRIsU3=w526-h296" alt="PedidosYa - Restaurant Details Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="phone-mockup tilted-right" aria-label="PedidosYa - Screenshot 3">
+            <div class="screen">
+              <img src="https://play-lh.googleusercontent.com/7fvq-bfuW0Cz8YmnkdR2TzwxlCLG2IPUX-7YxpCBgsKV6Fy_SO6Qps3Zjgo9p9LVxA=w526-h296" alt="PedidosYa - Menu & Items Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="phone-mockup" aria-label="PedidosYa - Screenshot 4">
+            <div class="screen">
+              <img src="https://play-lh.googleusercontent.com/vfL99HWIhSaDLIFrk4N1AhB2f-Xsq79fCCKfyJwiTxeTbE953UFhGjD9yRIbU6k-UEE=w526-h296" alt="PedidosYa - Checkout & Payment Screen" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ruleta Millonaria -->
+      <div class="featured-project">
+        <div class="fp-content">
+          <h3>Ruleta Millonaria</h3>
+          <div class="fp-desc">Gamified savings feature for Interbank with 50K+ active monthly users. Features spin-wheel rewards, achievement tracking, and prize redemption system. Implemented CI/CD automation with Azure DevOps for Play Store and App Store deployment. Delivered 98% uptime through careful infrastructure planning and monitoring.</div>
+          <div class="project-impact">50K+ active users · Interbank · 98% uptime</div>
+          <div class="fp-links">
+            <a href="https://play.google.com/store/apps/details?id=com.interbank" rel="noopener noreferrer" aria-label="Open Interbank app on Google Play Store" target="_blank">Google Play</a>
+            <a href="https://apps.apple.com/pe/app/interbank/id1126529945" rel="noopener noreferrer" aria-label="Open Interbank app on Apple App Store" target="_blank">App Store</a>
+          </div>
+        </div>
+        <div class="phone-mockups">
+          <div class="phone-mockup tilted-left" aria-label="Ruleta Millonaria - Screenshot 1">
+            <div class="screen">
+              <img src="https://play-lh.googleusercontent.com/qZHB0N1Wtp-gCSU2brYsJjTnBaa9wiwPp1PlF9ps96TLSAKwyzEgob4HvJ9pKpoDYw" alt="Ruleta Millonaria - Home & Savings Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="phone-mockup tilted-right" aria-label="Ruleta Millonaria - Screenshot 2">
+            <div class="screen">
+              <img src="https://play-lh.googleusercontent.com/8Mow2JC9cP5IV3DOEMiWromE8fCFLyePgzuuyORiwSKTPQWoqsD27b1wdSFF8mOAEr5y" alt="Ruleta Millonaria - Spinning Wheel & Rewards" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="projects-section-title">Other Notable Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h4>Firebase Real-time Integration</h4>
+        <p>Built real-time data synchronization layer for multiple Interbank features. Implemented optimistic updates, offline queueing, and conflict resolution for seamless UX across payment features.</p>
+        <div class="project-card-tags">
+          <span>Firebase</span><span>Kotlin</span><span>Real-time</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h4>Accessibility Framework</h4>
+        <p>Designed accessibility layer ensuring WCAG 2.1 AA compliance across 50+ screens. Implemented VoiceOver support, proper semantic markup, and keyboard navigation for all interactive elements.</p>
+        <div class="project-card-tags">
+          <span>Accessibility</span><span>WCAG</span><span>Testing</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h4>CI/CD Pipeline</h4>
+        <p>Architected Azure DevOps pipeline automating builds, tests, and deployments to Play Store and App Store. Reduced deployment time from 2 hours to 15 minutes with parallel test execution.</p>
+        <div class="project-card-tags">
+          <span>Azure DevOps</span><span>CI/CD</span><span>Automation</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h4>Performance Profiling</h4>
+        <p>Systematic performance optimization reducing app startup time by 40% and memory usage by 30%. Used Android Profiler, Firebase Performance, and Perfetto for data-driven improvements.</p>
+        <div class="project-card-tags">
+          <span>Performance</span><span>Profiling</span><span>Android</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h4>Security Audit</h4>
+        <p>Conducted comprehensive security review establishing SSL Pinning, MTLS, and AES-256 encryption standards. Achieved 100% vulnerability remediation rate with quarterly assessments.</p>
+        <div class="project-card-tags">
+          <span>Security</span><span>Encryption</span><span>Best Practices</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h4>Jetpack Compose Migration</h4>
+        <p>Led migration of 200+ screens from legacy Android XML layouts to modern Jetpack Compose. Reduced code complexity by 40% and improved development velocity with composable reusability.</p>
+        <div class="project-card-tags">
+          <span>Jetpack Compose</span><span>Kotlin</span><span>Refactoring</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Skills & Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Android Development</h4>
+        <ul>
+          <li>Kotlin & Jetpack Compose</li>
+          <li>Android Architecture Patterns</li>
+          <li>Jetpack Libraries (Room, LiveData, ViewModel)</li>
+          <li>Dependency Injection (Dagger, Hilt)</li>
+          <li>Coroutines & Flow</li>
+          <li>Material Design & UI/UX</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>iOS Development</h4>
+        <ul>
+          <li>Swift & SwiftUI</li>
+          <li>UIKit & AutoLayout</li>
+          <li>Core Data & Realm</li>
+          <li>Grand Central Dispatch (GCD)</li>
+          <li>Push Notifications</li>
+          <li>App Store Optimization</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Backend & APIs</h4>
+        <ul>
+          <li>REST APIs & GraphQL</li>
+          <li>Firebase & Firestore</li>
+          <li>Azure Cloud Services</li>
+          <li>Real-time Data Streaming</li>
+          <li>API Design & Documentation</li>
+          <li>OAuth 2.0 & JWT</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Testing & QA</h4>
+        <ul>
+          <li>Unit Testing (JUnit, XCTest)</li>
+          <li>Integration Testing (Espresso, XCUITest)</li>
+          <li>Snapshot Testing</li>
+          <li>Test Automation & Coverage</li>
+          <li>Firebase Test Lab</li>
+          <li>Accessibility Testing</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>DevOps & Tools</h4>
+        <ul>
+          <li>Azure DevOps</li>
+          <li>Git & GitHub</li>
+          <li>CI/CD Pipelines</li>
+          <li>Android Studio & Xcode</li>
+          <li>Gradle & Build Systems</li>
+          <li>Jira & Confluence</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Leadership & Soft Skills</h4>
+        <ul>
+          <li>Team Mentoring</li>
+          <li>Architecture & Design Review</li>
+          <li>Agile & Scrum</li>
+          <li>Technical Documentation</li>
+          <li>Cross-functional Collaboration</li>
+          <li>Problem Solving</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Get in Touch</h2>
+    <p>Let's connect! Whether you're interested in collaboration, have questions about my work, or just want to chat about mobile development — I'd love to hear from you.</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <h4>Email</h4>
+        <a href="mailto:victor.saico@tecsup.edu.pe" aria-label="Send email to Victor Saico">victor.saico@tecsup.edu.pe</a>
+      </div>
+      <div class="contact-item">
+        <h4>Phone</h4>
+        <a href="tel:+51925137361" aria-label="Call Victor Saico">+51 925 137 361</a>
+      </div>
+      <div class="contact-item">
+        <h4>GitHub</h4>
+        <a href="https://github.com/victorskatepro" rel="noopener noreferrer" target="_blank" aria-label="Visit Victor Saico GitHub profile">victorskatepro</a>
+      </div>
+      <div class="contact-item">
+        <h4>LinkedIn</h4>
+        <a href="https://linkedin.com/in/victorsaico" rel="noopener noreferrer" target="_blank" aria-label="Visit Victor Saico LinkedIn profile">victorsaico</a>
+      </div>
+      <div class="contact-item">
+        <h4>Location</h4>
+        <a href="#" aria-label="Lima, Peru">Lima, Peru</a>
+      </div>
+      <div class="contact-item">
+        <h4>Resume</h4>
+        <a href="https://drive.google.com/file/d/1-example-replace-with-real-id/view?usp=sharing" rel="noopener noreferrer" target="_blank" aria-label="Download resume PDF">Download PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Victor Saico. Crafted with precision and care. <a href="#hero" aria-label="Back to top">Back to top</a></p>
+</footer>
+
+<script>
+// Navigation scroll effect
+const nav = document.querySelector('nav');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const tabs = document.querySelectorAll('.exp-tab');
+const panels = document.querySelectorAll('.exp-panel');
+
+// Handle nav scroll
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// Handle nav link active state
+window.addEventListener('scroll', () => {
+  let current = '';
+  const sections = document.querySelectorAll('section[id]');
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    if (pageYOffset >= sectionTop - 200) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').slice(1) === current) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// Handle experience tabs
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const tabName = tab.getAttribute('data-tab');
+
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    panels.forEach(panel => {
+      panel.classList.remove('active');
+      if (panel.getAttribute('data-panel') === tabName) {
+        panel.classList.add('active');
+      }
+    });
+  });
+});
+
+// Keyboard navigation for tabs
+tabs.forEach((tab, index) => {
+  tab.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' && index < tabs.length - 1) {
+      tabs[index + 1].click();
+      tabs[index + 1].focus();
+    } else if (e.key === 'ArrowLeft' && index > 0) {
+      tabs[index - 1].click();
+      tabs[index - 1].focus();
+    }
+  });
+});
+
+// Smooth scroll offset for fixed nav
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && document.querySelector(href)) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      const offsetTop = target.offsetTop - 80;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
+  });
+});
+
+// Intersection Observer for scroll reveals
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observerCallback = (entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+};
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+document.querySelectorAll('.featured-project, .project-card, .skill-group').forEach(el => {
+  el.classList.add('scroll-reveal');
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
