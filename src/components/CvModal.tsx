@@ -2,6 +2,9 @@
 
 import { useEffect } from "react";
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const CV_PATH = `${BASE}/cv_2026_vsaico.pdf`;
+
 interface Props {
   onClose: () => void;
 }
@@ -90,7 +93,7 @@ export default function CvModal({ onClose }: Props) {
 
           <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
             <a
-              href="/cv_2026_vsaico.pdf"
+              href={CV_PATH}
               download="cv_2026_vsaico.pdf"
               style={{
                 padding: "8px 16px",
@@ -135,7 +138,7 @@ export default function CvModal({ onClose }: Props) {
 
         {/* PDF embed */}
         <iframe
-          src="/cv_2026_vsaico.pdf"
+          src={CV_PATH}
           style={{ flex: 1, border: "none", background: "#0a0a0a" }}
           title="Victor Saico CV"
         />

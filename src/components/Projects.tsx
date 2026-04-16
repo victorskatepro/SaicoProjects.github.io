@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 type Filter = "All" | "Featured" | "iOS" | "Android" | "Mobile" | "Web";
 
 const filters: Filter[] = ["All", "Featured", "iOS", "Android", "Mobile", "Web"];
@@ -206,7 +208,7 @@ function PhoneFrameCard({ project }: { project: (typeof projects)[0] }) {
           }}
         >
           <Image
-            src={project.images[leftIdx]}
+            src={`${BASE}${project.images[leftIdx]}`}
             alt={`${project.title} screenshot`}
             fill
             style={{ objectFit: "cover", objectPosition: "top" }}
@@ -228,7 +230,7 @@ function PhoneFrameCard({ project }: { project: (typeof projects)[0] }) {
           }}
         >
           <Image
-            src={project.images[idx]}
+            src={`${BASE}${project.images[idx]}`}
             alt={`${project.title} screenshot ${idx + 1}`}
             fill
             style={{ objectFit: "cover", objectPosition: "top" }}
@@ -251,7 +253,7 @@ function PhoneFrameCard({ project }: { project: (typeof projects)[0] }) {
           }}
         >
           <Image
-            src={project.images[rightIdx]}
+            src={`${BASE}${project.images[rightIdx]}`}
             alt={`${project.title} screenshot`}
             fill
             style={{ objectFit: "cover", objectPosition: "top" }}
@@ -382,7 +384,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         }}
       >
         <Image
-          src={project.images[idx]}
+          src={`${BASE}${project.images[idx]}`}
           alt={`${project.title} screenshot ${idx + 1}`}
           fill
           style={{ objectFit: "cover", objectPosition: "top" }}

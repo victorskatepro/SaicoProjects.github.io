@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
   },
   basePath: isProd ? "/SaicoProjects.github.io" : "",
   assetPrefix: isProd ? "/SaicoProjects.github.io/" : "",
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProd ? "/SaicoProjects.github.io" : "",
+  },
 };
 
 export default nextConfig;
