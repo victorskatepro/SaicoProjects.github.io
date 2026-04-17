@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Contact() {
   const ref = useRef<HTMLElement>(null);
+  const { tr } = useLanguage();
+  const c = tr.contact;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -54,7 +57,7 @@ export default function Contact() {
             marginBottom: "16px",
           }}
         >
-          Contact
+          {c.label}
         </p>
         <h2
           style={{
@@ -66,9 +69,9 @@ export default function Contact() {
             color: "#f0f0f0",
           }}
         >
-          Let&apos;s build something
+          {c.heading1}
           <br />
-          <span className="gradient-text">that matters</span>
+          <span className="gradient-text">{c.heading2}</span>
         </h2>
 
         <p
@@ -79,9 +82,7 @@ export default function Contact() {
             marginBottom: "48px",
           }}
         >
-          I&apos;m open to senior engineering and technical lead roles — especially
-          where mobile, security, and scale intersect. Send me a message and I&apos;ll
-          get back to you within a day.
+          {c.body}
         </p>
 
         <div
@@ -192,7 +193,7 @@ export default function Contact() {
         </div>
 
         <p style={{ color: "#444", fontSize: "0.875rem" }}>
-          Based in Huancayo, Peru · Available for remote and on-site roles
+          {c.location}
         </p>
       </div>
     </section>

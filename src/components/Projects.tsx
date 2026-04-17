@@ -2,141 +2,25 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 type Filter = "All" | "Featured" | "iOS" | "Android" | "Mobile" | "Web";
-
-const filters: Filter[] = ["All", "Featured", "iOS", "Android", "Mobile", "Web"];
+const filterKeys: Filter[] = ["All", "Featured", "iOS", "Android", "Mobile", "Web"];
 
 const projects = [
-  {
-    id: 1,
-    title: "Money Exchange — Interbank",
-    description:
-      "Native Android currency exchange product. AES-256 encryption, MTLS-secured communications, real-time Azure-backed data processing. 100,000 active customers. $5M in annual profit.",
-    tags: ["Android", "Kotlin", "Azure", "Security", "Fintech"],
-    category: ["Featured", "Android"] as Filter[],
-    images: [
-      "/images/featured/MoneyExchange1.PNG",
-      "/images/featured/MoneyExchange2.PNG",
-      "/images/featured/MoneyExchange3.PNG",
-    ],
-    accent: "#6366f1",
-    metrics: ["100k users", "$5M profit"],
-  },
-  {
-    id: 2,
-    title: "PedidosYa — Android App",
-    description:
-      "Latin America's leading food and delivery platform. Improved search, payment, and onboarding — reducing load time by 30%, lifting retention by 20%, boosting card conversion by 15%.",
-    tags: ["Android", "Kotlin", "Jetpack Compose", "Clean Architecture"],
-    category: ["Featured", "Android"] as Filter[],
-    images: [
-      "/images/featured/PedidosYa1.PNG",
-      "/images/featured/PedidosYa2.PNG",
-      "/images/featured/PedidosYa3.PNG",
-    ],
-    accent: "#f97316",
-    metrics: ["+20% retention", "+15% conversion", "-30% load time"],
-  },
-  {
-    id: 3,
-    title: "Android Projects",
-    description:
-      "Enterprise Android applications with Kotlin, Clean Architecture, and SOLID principles. Fintech, logistics, and retail verticals with production-grade security.",
-    tags: ["Android", "Kotlin", "MVVM", "Clean Architecture"],
-    category: ["Android"] as Filter[],
-    images: [
-      "/images/android/android-2.jpg",
-      "/images/android/android-3.png",
-      "/images/android/android-5.png",
-      "/images/android/android-6.png",
-      "/images/android/android-7.png",
-      "/images/android/android-8.png",
-      "/images/android/android-9.png",
-      "/images/android/android-11.jpg",
-    ],
-    accent: "#22c55e",
-    metrics: [],
-  },
-  {
-    id: 4,
-    title: "iOS Projects",
-    description:
-      "Native iOS applications built with Swift and SwiftUI. Banking, productivity, and consumer-facing apps with native UX patterns and Apple platform best practices.",
-    tags: ["iOS", "Swift", "SwiftUI", "Xcode"],
-    category: ["iOS"] as Filter[],
-    images: [
-      "/images/ios/ios-1.jpeg",
-      "/images/ios/ios-2.jpeg",
-      "/images/ios/ios-3.jpeg",
-      "/images/ios/ios-4.jpeg",
-      "/images/ios/ios-5.jpeg",
-      "/images/ios/ios-6.jpeg",
-      "/images/ios/ios-7.jpeg",
-      "/images/ios/ios-8.jpeg",
-      "/images/ios/ios-9.jpeg",
-      "/images/ios/ios-10.jpeg",
-      "/images/ios/ios-11.jpeg",
-      "/images/ios/ios-12.jpeg",
-      "/images/ios/ios-13.jpeg",
-      "/images/ios/ios-14.jpeg",
-      "/images/ios/ios-15.jpeg",
-      "/images/ios/ios-16.jpeg",
-      "/images/ios/ios-17.jpeg",
-      "/images/ios/ios-18.jpeg",
-      "/images/ios/ios-19.jpeg",
-    ],
-    accent: "#06b6d4",
-    metrics: [],
-  },
-  {
-    id: 5,
-    title: "Mobile Projects",
-    description:
-      "Cross-platform and hybrid mobile applications. E-commerce, logistics, location services, and enterprise tools — all production-grade architecture.",
-    tags: ["React Native", "Flutter", "Mobile", "Cross-platform"],
-    category: ["Mobile"] as Filter[],
-    images: [
-      "/images/movil/movil-a.jpg",
-      "/images/movil/movil-b.jpg",
-      "/images/movil/movil-c.jpg",
-      "/images/movil/movil-d.jpg",
-      "/images/movil/movil-e.jpg",
-      "/images/movil/movil-f.jpg",
-      "/images/movil/movil-g.jpg",
-      "/images/movil/movil-h.jpg",
-      "/images/movil/movil-i.jpg",
-      "/images/movil/movil-j.jpg",
-    ],
-    accent: "#8b5cf6",
-    metrics: [],
-  },
-  {
-    id: 6,
-    title: "Web & Infrastructure",
-    description:
-      "Full-stack web applications and DevOps infrastructure. CI/CD pipelines, Azure cloud deployments, and enterprise web solutions for banking and retail clients.",
-    tags: ["JavaScript", "Angular", "Node.js", "Azure", "Docker", "CI/CD"],
-    category: ["Web"] as Filter[],
-    images: [
-      "/images/web/web.jpeg",
-      "/images/web/web-1.jpeg",
-      "/images/web/web-2.jpeg",
-      "/images/web/web-3.jpeg",
-      "/images/web/web-4.PNG",
-      "/images/web/web-5.PNG",
-      "/images/web/web-6.PNG",
-      "/images/web/web-7.PNG",
-      "/images/web/web-8.PNG",
-    ],
-    accent: "#10b981",
-    metrics: [],
-  },
+  { id: 1, tags: ["Android", "Kotlin", "Azure", "Security", "Fintech"], category: ["Featured", "Android"] as Filter[], accent: "#6366f1", images: ["/images/featured/MoneyExchange1.PNG", "/images/featured/MoneyExchange2.PNG", "/images/featured/MoneyExchange3.PNG"] },
+  { id: 2, tags: ["Android", "Kotlin", "Jetpack Compose", "Clean Architecture"], category: ["Featured", "Android"] as Filter[], accent: "#f97316", images: ["/images/featured/PedidosYa1.PNG", "/images/featured/PedidosYa2.PNG", "/images/featured/PedidosYa3.PNG"] },
+  { id: 3, tags: ["Android", "Kotlin", "MVVM", "Clean Architecture"], category: ["Android"] as Filter[], accent: "#22c55e", images: ["/images/android/android-2.jpg", "/images/android/android-3.png", "/images/android/android-5.png", "/images/android/android-6.png", "/images/android/android-7.png", "/images/android/android-8.png", "/images/android/android-9.png", "/images/android/android-11.jpg"] },
+  { id: 4, tags: ["iOS", "Swift", "SwiftUI", "Xcode"], category: ["iOS"] as Filter[], accent: "#06b6d4", images: ["/images/ios/ios-1.jpeg", "/images/ios/ios-2.jpeg", "/images/ios/ios-3.jpeg", "/images/ios/ios-4.jpeg", "/images/ios/ios-5.jpeg", "/images/ios/ios-6.jpeg", "/images/ios/ios-7.jpeg", "/images/ios/ios-8.jpeg", "/images/ios/ios-9.jpeg", "/images/ios/ios-10.jpeg", "/images/ios/ios-11.jpeg", "/images/ios/ios-12.jpeg", "/images/ios/ios-13.jpeg", "/images/ios/ios-14.jpeg", "/images/ios/ios-15.jpeg", "/images/ios/ios-16.jpeg", "/images/ios/ios-17.jpeg", "/images/ios/ios-18.jpeg", "/images/ios/ios-19.jpeg"] },
+  { id: 5, tags: ["React Native", "Flutter", "Mobile", "Cross-platform"], category: ["Mobile"] as Filter[], accent: "#8b5cf6", images: ["/images/movil/movil-a.jpg", "/images/movil/movil-b.jpg", "/images/movil/movil-c.jpg", "/images/movil/movil-d.jpg", "/images/movil/movil-e.jpg", "/images/movil/movil-f.jpg", "/images/movil/movil-g.jpg", "/images/movil/movil-h.jpg", "/images/movil/movil-i.jpg", "/images/movil/movil-j.jpg"] },
+  { id: 6, tags: ["JavaScript", "Angular", "Node.js", "Azure", "Docker", "CI/CD"], category: ["Web"] as Filter[], accent: "#10b981", images: ["/images/web/web.jpeg", "/images/web/web-1.jpeg", "/images/web/web-2.jpeg", "/images/web/web-3.jpeg", "/images/web/web-4.PNG", "/images/web/web-5.PNG", "/images/web/web-6.PNG", "/images/web/web-7.PNG", "/images/web/web-8.PNG"] },
 ];
 
-function PhoneFrameCard({ project }: { project: (typeof projects)[0] }) {
+type ProjectItem = Omit<(typeof projects)[0], "metrics"> & { title: string; description: string; metrics: readonly string[] };
+
+function PhoneFrameCard({ project }: { project: ProjectItem }) {
   const [idx, setIdx] = useState(0);
   const total = project.images.length;
 
@@ -335,7 +219,7 @@ function PhoneFrameCard({ project }: { project: (typeof projects)[0] }) {
   );
 }
 
-function ProjectCard({ project }: { project: (typeof projects)[0] }) {
+function ProjectCard({ project }: { project: ProjectItem }) {
   const [idx, setIdx] = useState(0);
   const total = project.images.length;
 
@@ -454,7 +338,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   );
 }
 
-function CardBody({ project }: { project: (typeof projects)[0] }) {
+function CardBody({ project }: { project: ProjectItem }) {
   return (
     <div style={{ padding: "20px 24px 24px", flex: 1, display: "flex", flexDirection: "column" }}>
       <h3
@@ -510,8 +394,10 @@ function CardBody({ project }: { project: (typeof projects)[0] }) {
 }
 
 export default function Projects() {
-  const [active, setActive] = useState<Filter>("All");
+  const [activeIdx, setActiveIdx] = useState(0);
   const ref = useRef<HTMLElement>(null);
+  const { tr } = useLanguage();
+  const pr = tr.projects;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -522,8 +408,15 @@ export default function Projects() {
     return () => observer.disconnect();
   }, []);
 
-  const filtered =
-    active === "All" ? projects : projects.filter((p) => p.category.includes(active));
+  const active = filterKeys[activeIdx];
+  const mergedProjects: ProjectItem[] = projects.map((p, i) => ({
+    ...p,
+    title: pr.items[i].title,
+    description: pr.items[i].description,
+    metrics: pr.items[i].metrics,
+  }));
+
+  const filtered = active === "All" ? mergedProjects : mergedProjects.filter((p) => p.category.includes(active));
 
   return (
     <section
@@ -533,39 +426,38 @@ export default function Projects() {
       style={{ padding: "100px 24px", maxWidth: "1100px", margin: "0 auto" }}
     >
       <p style={{ color: "#6366f1", fontSize: "0.8125rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "16px", textAlign: "center" }}>
-        Projects
+        {pr.label}
       </p>
       <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, letterSpacing: "-0.03em", textAlign: "center", marginBottom: "40px", color: "#f0f0f0" }}>
-        Things I&apos;ve shipped
+        {pr.heading}
       </h2>
 
       <div style={{ display: "flex", gap: "8px", justifyContent: "center", marginBottom: "56px", flexWrap: "wrap" }}>
-        {filters.map((f) => (
+        {pr.filters.map((label, i) => (
           <button
-            key={f}
-            onClick={() => setActive(f)}
+            key={label}
+            onClick={() => setActiveIdx(i)}
             style={{
               padding: "8px 20px",
               borderRadius: "100px",
               border: "1px solid",
-              borderColor: active === f ? "#6366f1" : "#222",
-              background: active === f ? "rgba(99,102,241,0.15)" : "transparent",
-              color: active === f ? "#a5b4fc" : "#666",
+              borderColor: activeIdx === i ? "#6366f1" : "#222",
+              background: activeIdx === i ? "rgba(99,102,241,0.15)" : "transparent",
+              color: activeIdx === i ? "#a5b4fc" : "#666",
               fontSize: "0.875rem",
               fontWeight: 600,
               cursor: "pointer",
               transition: "all 0.2s",
             }}
           >
-            {f}
+            {label}
           </button>
         ))}
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px" }}>
         {filtered.map((p) =>
-          p.category.some((c) => ["iOS", "Android", "Mobile"].includes(c)) &&
-          !p.category.includes("Featured") ? (
+          p.category.some((c) => ["iOS", "Android", "Mobile"].includes(c)) ? (
             <PhoneFrameCard key={p.id} project={p} />
           ) : (
             <ProjectCard key={p.id} project={p} />

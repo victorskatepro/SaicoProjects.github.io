@@ -1,42 +1,21 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const categories = [
-  {
-    name: "Mobile Development",
-    icon: "📱",
-    accent: "#6366f1",
-    skills: ["Kotlin", "Java", "Swift", "Android SDK", "Jetpack Compose"],
-  },
-  {
-    name: "Web & Backend",
-    icon: "🌐",
-    accent: "#06b6d4",
-    skills: ["JavaScript", "Python", "Angular", "Node.js"],
-  },
-  {
-    name: "Cloud & DevOps",
-    icon: "☁️",
-    accent: "#8b5cf6",
-    skills: ["Azure", "Redis", "Cosmos DB", "Docker", "Kubernetes", "CI/CD", "GitFlow"],
-  },
-  {
-    name: "Security",
-    icon: "🔐",
-    accent: "#f59e0b",
-    skills: ["AES-256", "SSL Pinning", "MTLS", "JWT", "DexGuard", "IxGuard"],
-  },
-  {
-    name: "Practices & Methods",
-    icon: "⚡",
-    accent: "#10b981",
-    skills: ["SOLID", "Clean Architecture", "SCRUM", "Code Review", "Technical Leadership"],
-  },
+const catMeta = [
+  { icon: "📱", accent: "#6366f1", skills: ["Kotlin", "Java", "Swift", "Android SDK", "Jetpack Compose"] },
+  { icon: "🌐", accent: "#06b6d4", skills: ["JavaScript", "Python", "Angular", "Node.js"] },
+  { icon: "☁️", accent: "#8b5cf6", skills: ["Azure", "Redis", "Cosmos DB", "Docker", "Kubernetes", "CI/CD", "GitFlow"] },
+  { icon: "🔐", accent: "#f59e0b", skills: ["AES-256", "SSL Pinning", "MTLS", "JWT", "DexGuard", "IxGuard"] },
+  { icon: "⚡", accent: "#10b981", skills: ["SOLID", "Clean Architecture", "SCRUM", "Code Review", "Technical Leadership"] },
 ];
 
 export default function TechStack() {
   const ref = useRef<HTMLElement>(null);
+  const { tr } = useLanguage();
+  const sk = tr.skills;
+  const categories = sk.categories.map((c, i) => ({ ...catMeta[i], name: c.name }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -73,7 +52,7 @@ export default function TechStack() {
             textAlign: "center",
           }}
         >
-          Skills
+          {sk.label}
         </p>
         <h2
           style={{
@@ -85,7 +64,7 @@ export default function TechStack() {
             color: "#f0f0f0",
           }}
         >
-          What I work with
+          {sk.heading}
         </h2>
 
         <div

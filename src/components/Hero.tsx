@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import CvModal from "./CvModal";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
   const [cvOpen, setCvOpen] = useState(false);
+  const { tr } = useLanguage();
+  const h = tr.hero;
 
   return (
     <>
@@ -65,7 +68,7 @@ export default function Hero() {
                 animation: "pulse 2s infinite",
               }}
             />
-            Open to Senior &amp; Lead roles
+            {h.badge}
           </div>
 
           <h1
@@ -80,7 +83,7 @@ export default function Hero() {
           >
             Victor Saico
             <br />
-            <span className="gradient-text">Technical Lead</span>
+            <span className="gradient-text">{h.title2}</span>
           </h1>
 
           <p
@@ -92,13 +95,11 @@ export default function Hero() {
               lineHeight: 1.6,
             }}
           >
-            Building fintech and mobile products used by thousands — and
-            engineered to last.
+            {h.sub}
           </p>
 
           <p style={{ fontSize: "1rem", color: "#666", marginBottom: "48px" }}>
-            Technical Lead at Interbank · 8+ years shipping mobile apps that
-            drive real revenue at scale.
+            {h.desc}
           </p>
 
           {/* Metrics */}
@@ -111,11 +112,7 @@ export default function Hero() {
               flexWrap: "wrap",
             }}
           >
-            {[
-              { value: "100k+", label: "Active Users" },
-              { value: "$5M", label: "Annual Profit" },
-              { value: "8+", label: "Years Experience" },
-            ].map((m) => (
+            {h.metrics.map((m) => (
               <div key={m.label} style={{ textAlign: "center" }}>
                 <div
                   style={{
@@ -165,7 +162,7 @@ export default function Hero() {
                 (e.target as HTMLAnchorElement).style.transform = "translateY(0)";
               }}
             >
-              View my work
+              {h.cta1}
             </a>
 
             <button
@@ -197,7 +194,7 @@ export default function Hero() {
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                 <polyline points="14 2 14 8 20 8"/>
               </svg>
-              View CV
+              {h.cta2}
             </button>
 
             <a
@@ -222,7 +219,7 @@ export default function Hero() {
                 (e.target as HTMLAnchorElement).style.transform = "translateY(0)";
               }}
             >
-              Get in touch
+              {h.cta3}
             </a>
           </div>
 

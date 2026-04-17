@@ -1,24 +1,26 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
-const links = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { lang, setLang, tr } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const links = [
+    { href: "#projects", label: tr.nav.projects },
+    { href: "#about", label: tr.nav.about },
+    { href: "#experience", label: tr.nav.experience },
+    { href: "#skills", label: tr.nav.skills },
+    { href: "#contact", label: tr.nav.contact },
+  ];
 
   return (
     <header
@@ -60,11 +62,7 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <div
-          style={{
-            display: "flex",
-            gap: "32px",
-            alignItems: "center",
-          }}
+          style={{ display: "flex", gap: "28px", alignItems: "center" }}
           className="hidden-mobile"
         >
           {links.map((l) => (
@@ -87,6 +85,34 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
+
+          {/* Language toggle */}
+          <button
+            onClick={() => setLang(lang === "en" ? "es" : "en")}
+            style={{
+              padding: "5px 12px",
+              background: "transparent",
+              color: "#888",
+              border: "1px solid #333",
+              borderRadius: "8px",
+              cursor: "pointer",
+              fontSize: "0.8125rem",
+              fontWeight: 600,
+              letterSpacing: "0.05em",
+              transition: "color 0.2s, border-color 0.2s",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.color = "#f0f0f0";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "#666";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.color = "#888";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "#333";
+            }}
+          >
+            {lang === "en" ? "ES" : "EN"}
+          </button>
+
           <a
             href="mailto:victor.saico@tecsup.edu.pe"
             style={{
@@ -106,7 +132,7 @@ export default function Navbar() {
               ((e.target as HTMLAnchorElement).style.background = "#6366f1")
             }
           >
-            Hire me
+            {tr.nav.hire}
           </a>
         </div>
 
@@ -168,22 +194,40 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a
-            href="mailto:victor.saico@tecsup.edu.pe"
-            style={{
-              display: "block",
-              marginTop: "16px",
-              padding: "12px",
-              background: "#6366f1",
-              color: "white",
-              borderRadius: "8px",
-              textDecoration: "none",
-              textAlign: "center",
-              fontWeight: 600,
-            }}
-          >
-            Hire me
-          </a>
+          <div style={{ display: "flex", gap: "10px", marginTop: "16px" }}>
+            <button
+              onClick={() => setLang(lang === "en" ? "es" : "en")}
+              style={{
+                flex: 1,
+                padding: "12px",
+                background: "transparent",
+                color: "#888",
+                border: "1px solid #333",
+                borderRadius: "8px",
+                cursor: "pointer",
+                fontSize: "0.9rem",
+                fontWeight: 600,
+              }}
+            >
+              {lang === "en" ? "Español" : "English"}
+            </button>
+            <a
+              href="mailto:victor.saico@tecsup.edu.pe"
+              style={{
+                flex: 2,
+                display: "block",
+                padding: "12px",
+                background: "#6366f1",
+                color: "white",
+                borderRadius: "8px",
+                textDecoration: "none",
+                textAlign: "center",
+                fontWeight: 600,
+              }}
+            >
+              {tr.nav.hire}
+            </a>
+          </div>
         </div>
       )}
 

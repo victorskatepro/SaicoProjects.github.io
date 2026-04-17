@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function About() {
   const ref = useRef<HTMLElement>(null);
+  const { tr } = useLanguage();
+  const a = tr.about;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,7 +39,7 @@ export default function About() {
       >
         <div>
           <p style={{ color: "#6366f1", fontSize: "0.8125rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "16px" }}>
-            About
+            {a.label}
           </p>
           <h2
             style={{
@@ -48,61 +51,20 @@ export default function About() {
               color: "#f0f0f0",
             }}
           >
-            Engineering for
+            {a.heading1}
             <br />
-            real-world impact
+            {a.heading2}
           </h2>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <p style={{ color: "#888", lineHeight: 1.75, fontSize: "1rem" }}>
-              I&apos;m a software engineer and technical lead based in Huancayo, Peru.
-              Over eight years I&apos;ve taken mobile products from concept to production
-              at fintech, logistics, and enterprise scale — owning architecture,
-              delivery, and the people who build alongside me.
-            </p>
-            <p style={{ color: "#888", lineHeight: 1.75, fontSize: "1rem" }}>
-              My work lives at the intersection of security and speed. I build
-              Android-first experiences secured with AES-256 and SSL pinning,
-              backed by cloud infrastructure on Azure, and deployed through
-              automated pipelines I design myself. The app I currently lead
-              generates $5M in profit and serves 100,000 active users.
-            </p>
-            <p style={{ color: "#888", lineHeight: 1.75, fontSize: "1rem" }}>
-              I care about numbers that matter: retention rates, conversion lifts,
-              load time cuts. I&apos;ve also spent time as a mobile programming
-              professor at TECSUP — because clear thinking sharpens better code.
-            </p>
+            <p style={{ color: "#888", lineHeight: 1.75, fontSize: "1rem" }}>{a.p1}</p>
+            <p style={{ color: "#888", lineHeight: 1.75, fontSize: "1rem" }}>{a.p2}</p>
+            <p style={{ color: "#888", lineHeight: 1.75, fontSize: "1rem" }}>{a.p3}</p>
           </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-          {[
-            {
-              icon: "📍",
-              label: "Location",
-              value: "Huancayo, Peru",
-            },
-            {
-              icon: "🏢",
-              label: "Current Role",
-              value: "Technical Lead @ Interbank",
-            },
-            {
-              icon: "📱",
-              label: "Specialization",
-              value: "Android, iOS, Fintech",
-            },
-            {
-              icon: "🎓",
-              label: "Education",
-              value: "TECSUP — Mobile Programming Professor",
-            },
-            {
-              icon: "🌐",
-              label: "Languages",
-              value: "Spanish (native), English (professional)",
-            },
-          ].map((item) => (
+          {a.cards.map((item) => (
             <div
               key={item.label}
               style={{

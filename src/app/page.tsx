@@ -1,3 +1,4 @@
+import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -9,17 +10,17 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <>
+    <LanguageProvider>
       <Navbar />
       <main>
         <Hero />
+        <Projects />
         <About />
         <Experience />
-        <Projects />
         <TechStack />
         <Contact />
       </main>
       <Footer />
-    </>
+    </LanguageProvider>
   );
 }

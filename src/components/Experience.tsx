@@ -1,82 +1,20 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const experiences = [
-  {
-    role: "Technical Lead — Money Exchange",
-    company: "Interbank",
-    period: "Jan 2025 – present",
-    bullets: [
-      "Leads the mobile product responsible for $5M in annual profit and 100,000 active users",
-      "Owns end-to-end architecture: security layer (MTLS, JWT, DexGuard), Azure cloud stack, and CI/CD pipeline",
-      "Drives cross-functional delivery across mobile, backend, and DevOps teams",
-    ],
-    accent: "#6366f1",
-    current: true,
-  },
-  {
-    role: "Senior Android Developer",
-    company: "PedidosYa",
-    period: "Dec 2021 – Aug 2024",
-    bullets: [
-      "Increased user retention by 20% through targeted UX improvements and performance work",
-      "Lifted card acquisition conversion by 15% via redesigned onboarding and payment flows",
-      "Cut search feature load time by 30% through caching and architecture refactors",
-    ],
-    accent: "#8b5cf6",
-    current: false,
-  },
-  {
-    role: "Mobile Programming Professor",
-    company: "TECSUP",
-    period: "Mar 2022 – Dec 2024",
-    bullets: [
-      "Designed and delivered Android development curriculum to engineering students",
-      "Bridged industry practice (Jetpack Compose, Clean Architecture) with academic instruction",
-      "Mentored students through real-world mobile project delivery",
-    ],
-    accent: "#06b6d4",
-    current: false,
-  },
-  {
-    role: "Tech Lead",
-    company: "Interbank",
-    period: "Prior role",
-    bullets: [
-      "Established CI/CD pipelines and GitFlow conventions adopted across mobile teams",
-      "Led a team of engineers through delivery of internal banking tools",
-      "Introduced security standards later scaled company-wide",
-    ],
-    accent: "#6366f1",
-    current: false,
-  },
-  {
-    role: "Software Engineer",
-    company: "Everis / NTT Data",
-    period: "",
-    bullets: [
-      "Developed enterprise mobile and web solutions for large-scale clients",
-      "Worked within agile squads using SCRUM across multi-country delivery teams",
-    ],
-    accent: "#f59e0b",
-    current: false,
-  },
-  {
-    role: "Software Developer",
-    company: "Solera",
-    period: "",
-    bullets: [
-      "Built and maintained automotive industry software on the Android platform",
-      "Contributed to international product delivery with cross-functional teams",
-    ],
-    accent: "#10b981",
-    current: false,
-  },
-];
+const accents = ["#6366f1", "#8b5cf6", "#06b6d4", "#6366f1", "#f59e0b", "#10b981"];
+const currentFlags = [true, false, false, false, false, false];
 
 export default function Experience() {
   const ref = useRef<HTMLElement>(null);
+  const { tr } = useLanguage();
+  const ex = tr.experience;
+  const experiences = ex.items.map((item, i) => ({
+    ...item,
+    accent: accents[i],
+    current: currentFlags[i],
+  }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -113,7 +51,7 @@ export default function Experience() {
             textAlign: "center",
           }}
         >
-          Experience
+          {ex.label}
         </p>
         <h2
           style={{
@@ -125,7 +63,7 @@ export default function Experience() {
             color: "#f0f0f0",
           }}
         >
-          Where I&apos;ve built things
+          {ex.heading}
         </h2>
 
         <div style={{ position: "relative" }}>
@@ -233,7 +171,7 @@ export default function Experience() {
                             border: "1px solid rgba(34,197,94,0.2)",
                           }}
                         >
-                          Current
+                          {ex.current}
                         </span>
                       )}
                       {exp.period && (
